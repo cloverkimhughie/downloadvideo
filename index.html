@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Download Video · 영상 저장</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<header><a href="/" class="brand"><span class="mark">↓</span> downloadvideo</a><span class="tag">나만의 영상 보관함</span></header>
+<main>
+<div class="eyebrow">LINK. DOWNLOAD. KEEP.</div>
+<h1>링크 하나로,<br>영상을 내 기기에.</h1>
+<p class="intro">유튜브 링크를 붙여 넣고 원하는 화질로 저장하세요.</p>
+<section class="card" aria-label="영상 다운로드">
+<form id="form">
+<label for="url">유튜브 영상 링크</label>
+<input id="url" type="url" required maxlength="2048" placeholder="https://www.youtube.com/watch?v=…" autocomplete="off" inputmode="url">
+<div class="options"><div><label for="quality">최대 화질</label><select id="quality"><option value="360">360p · 용량 절약</option><option value="720" selected>720p · 추천</option><option value="1080">1080p · 고화질</option></select></div><div class="format"><span>파일 형식</span><strong>MP4 <small>영상 + 소리</small></strong></div></div>
+<button id="submit" type="submit">영상 준비하기 <span>↓</span></button>
+</form>
+<div id="status" role="status" aria-live="polite">링크를 입력하면 시작할 수 있어요.</div>
+<progress id="progress" hidden aria-label="영상 처리 중"></progress>
+<a id="save" class="save" hidden download="youtube-video.mp4">MP4 파일 저장하기 ↓</a>
+<p class="note">직접 만든 영상이나 다운로드 허락을 받은 영상에 사용하세요.</p>
+</section>
+<div class="details"><span>01 <b>링크 붙여 넣기</b></span><span>02 <b>화질 선택하기</b></span><span>03 <b>파일 저장하기</b></span></div>
+<p class="limits">최대 30분 · 250MB · 한 번에 영상 1개<br>준비된 파일은 15분 동안 저장할 수 있어요.</p>
+</main><footer>DOWNLOADVIDEO <span>필요한 순간, 다시 꺼내 볼 수 있도록.</span></footer>
+</body></html>
