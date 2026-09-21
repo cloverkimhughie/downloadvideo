@@ -107,8 +107,8 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path = urlsplit(self.path).path
-        if path in ('/', '/app.js', '/style.css'):
-            name, mime = {'/': ('index.html', 'text/html; charset=utf-8'), '/app.js': ('app.js', 'text/javascript; charset=utf-8'), '/style.css': ('style.css', 'text/css; charset=utf-8')}[path]
+        if path in ('/', '/app.js', '/style.css', '/config.js'):
+            name, mime = {'/config.js': ('config.js', 'text/javascript; charset=utf-8'), '/': ('index.html', 'text/html; charset=utf-8'), '/app.js': ('app.js', 'text/javascript; charset=utf-8'), '/style.css': ('style.css', 'text/css; charset=utf-8')}[path]
             return self.reply(200, (ROOT / name).read_bytes(), mime)
         if path == '/api/config':
             return self.reply(200, {'token': TOKEN})

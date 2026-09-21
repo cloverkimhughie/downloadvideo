@@ -2,7 +2,25 @@
 
 유튜브 링크를 넣고 MP4 파일을 저장하는 개인용 웹 앱입니다. 360p / 720p / 1080p 최대 화질을 선택할 수 있으며, 선택한 값 이하의 사용 가능한 H.264 영상과 소리를 다운로드합니다.
 
-## 아이패드에서도 실행하기: GitHub Codespaces
+## GitHub Pages 주소에서 열기
+
+목표 주소: https://cloverkimhughie.github.io/downloadvideo/
+
+화면 파일은 프로젝트 하위 경로를 지원합니다. 저장소 **Settings → Pages → Deploy from a branch → main → /(root) → Save**로 게시할 수 있습니다.
+
+현재 이 저장소에는 별도 운영 서버 주소가 설정되어 있지 않습니다. Pages 화면에서는 **다운로드 서비스 준비 중**으로 표시되며 다운로드 버튼이 비활성화됩니다. Pages 자체는 Python을 실행하지 않으므로, 화면 게시만으로 다운로드 기능이 활성화되지 않습니다.
+
+### 운영 서버 연결에 남은 작업
+
+1. Python, FFmpeg 및 Node.js를 지원하는 HTTPS 서버를 준비합니다.
+2. 운영 서버에 인증과 이용량 제한을 적용합니다. 기존 server.py는 개인용 서버이므로 그대로 공개하지 않습니다.
+3. 운영 서버에 Pages 출처 `https://cloverkimhughie.github.io`를 허용하는 CORS 응답과 OPTIONS 처리를 추가합니다. API의 GET/POST 및 X-App-Token 요청 헤더를 지원해야 합니다.
+4. `config.js`의 `apiBaseUrl`에 운영 서버의 HTTPS 기본 주소를 입력합니다. 이 파일은 공개되므로 비밀번호·쿠키·비밀 키를 넣지 않습니다.
+5. 실제 허용된 공개 영상의 정보 조회, 다운로드, 파일 전달을 운영 서버에서 확인합니다.
+
+현재 Codespaces에서 확인된 YouTube의 봇 확인 요구는 Pages로 화면을 옮겨도 해결되지 않습니다. 사설 Codespaces 포트는 GitHub 인증을 요구하므로 Pages의 외부 API로 바로 연결할 수 있다고 가정하지 않습니다. 정상 동작하는 백엔드를 확인한 뒤 연결해야 합니다.
+
+## 개인용 실행: GitHub Codespaces
 
 1. 이 저장소에서 **Code → Codespaces → Create codespace on main**을 선택합니다.
 2. 최초 환경 설치가 끝날 때까지 기다립니다. Python, Node.js, FFmpeg, yt-dlp가 준비됩니다.
@@ -13,7 +31,7 @@
 
 Codespace가 실행되는 동안 사용할 수 있습니다. 사용이 끝나면 Codespace를 중지하세요. Codespaces에는 계정별 사용량 제한이 있으며 계정의 요금·사용량 설정을 확인하세요. 이 저장소에는 상시 공개 서버가 배포되어 있지 않습니다.
 
-**GitHub Pages만으로는 작동하지 않습니다.** Python 다운로드 서버가 필요합니다. `index.html`을 직접 여는 대신 위 서버 주소를 사용하세요.
+GitHub Pages에는 화면을 게시할 수 있지만 실제 다운로드에는 Python 서버가 필요합니다. 개인용 실행에서는 위 서버 주소를 사용하세요.
 
 ## 내 컴퓨터에서 실행하기
 
